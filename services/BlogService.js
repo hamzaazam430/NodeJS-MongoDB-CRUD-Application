@@ -11,6 +11,10 @@ exports.getBlogById = async (id) => {
   return await BlogModel.findById(id);
 };
 
+exports.getAllBlogsByAuthor = async (id) => {
+  return await BlogModel.find({author: id});
+}; 
+
 exports.updateBlog = async (id, blog) => {
   return await BlogModel.findByIdAndUpdate(id, blog);
 };

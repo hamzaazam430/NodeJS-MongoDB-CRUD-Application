@@ -27,6 +27,15 @@ exports.getBlogById = async (req, res) => {
   }
 };
 
+exports.getAllBlogsByAuthor = async (req, res) => {
+  try {
+    const blog = await blogService.getAllBlogsByAuthor(req.params.id);
+    res.json({ data: blog, status: "success" });
+  } catch (err) {
+    res.status(500).json({ error: err.message });
+  }
+};
+
 exports.updateBlog = async (req, res) => {
   try {
     const blog = await blogService.updateBlog(req.params.id, req.body);
